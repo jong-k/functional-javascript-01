@@ -32,7 +32,7 @@
 
   const times = (f, n) => {
     let i = -1;
-    while (++i < n) f(i);
+    while (++i < n) f(i); // 전위 증감 연산자를 사용해서 i를 1 증가 시킨 후 조건문 확인
   };
 
   times(log, 3); // 0 1 2
@@ -48,7 +48,12 @@
    * addMaker는 함수를 return하는 함수
    * 클로저를 만들어 리턴하기 때문에 a의 값을 기억하고 있다.
    * */
-  const addMaker = a => b => a + b;
+  const addMaker = a => b => a + b; // 함수가 실행되면 함수를 반환하는데, 클로저라서 호출된 환경의 변수 a 를 기억하고 있음
+  const addMaker2 = function(a) {
+    return function(b) {
+      return a + b;
+    }
+  }
   const add10 = addMaker(10);
   /**
    * add10(5)
