@@ -46,6 +46,10 @@
   log([1, 2, 3].map(a => a + 1)); // [2, 3, 4]
 
   // document.querySelectorAll('*').map(el => el.nodeName); // Error
+  // 이유
+  // document.querySelectorAll() 함수는 배열과 비슷한 NodeList 객체를 반환하지만, NodeList 객체는 배열이 아니라서(유사 배열 객체) prototype에 map 메서드가 구현이 안되어 있음
+  // 유사 배열 객체는 스프레드 연산자로 배열로 만들 수 있음
+
   // console.log(document.querySelectorAll('*').map); // undefined => 순회 가능할 것 같으나 map 메서드가 없음
 
   const it = document.querySelectorAll('*')[Symbol.iterator]();
